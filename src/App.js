@@ -1,26 +1,24 @@
-import { FcSettings, FcIdea } from "react-icons/fc";
+import { Route, Routes, Navigate } from "react-router-dom";
+import Header from "./Header";
+import HomeLayout from "./layouts/HomeLayout";
+import AuthLayout from "./layouts/AuthLayout";
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="text-green-300 bg-black items-center py-6 px-4 text-[32px] flex">
-          <div className="w-[75%]">Papers</div>
-          <div className="flex justify-between w-[25%]  ">
-            <div>
-              <FcSettings width={10} height={10} className="w-8 h-8 spinner" />
-            </div> 
-            <div>
-              <FcIdea className=" animate-ping absolute"/>
-              <FcIdea className="relative "/>
-            </div>
-          </div>
-        </div>
-       <div className="h-[100vh] w-full bg-[#36454F]">
-        Aditya made some change in the file 
-        some other changes also
-       </div>
-      </header>
+    <div className="w-screen h-screen ">
+      <Header />
+      <Routes>
+        <Route path="/home/*" element={<HomeLayout />} />
+        <Route path="/auth/*" element={<AuthLayout />} />
+
+        <Route path="/" element={<Navigate to="/home/main" />} />
+
+        <Route path="/home" element={<Navigate to="/home/main" />} />
+        <Route path="/auth" element={<Navigate to="/auth/login" />} />
+
+      </Routes>
     </div>
   );
 }
