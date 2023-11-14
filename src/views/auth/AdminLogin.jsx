@@ -37,19 +37,19 @@ const AdminLogin = () => {
           <div id="icon1" className="p-2 text-2xl"><i class="fa-solid fa-user"></i></div>
           <input type="text" className="w-full text-xl p-2 focus:outline-none bg-transparent" name='userName' value={input.userName} onChange={handleChange} placeholder='UserName or Email' />
         </div>
-        {error.userName == true && (<div className='text-red-500 text-[10px]  px-4 py-1 mx-4 my-1'>*UserName is Empty</div>)}
+        {error.userName === true && (<div className='text-red-500 text-[10px]  px-4 py-1 mx-4 my-1'>*UserName is Empty</div>)}
 
         <div id="password" className='bg-white px-4 py-1 mx-4 mt-10 flex rounded-[10px] align-middle'>
           <div id="icon2" className="p-2 text-2xl" ><i class="fa-solid fa-lock"></i></div>
           <input type={showPassword ? "text" : "password"} name='password' value={input.password} onChange={handleChange} className="w-full text-xl p-2 focus:outline-none bg-transparent" placeholder='Password' />
           {
-            showPassword == false ?
+            showPassword === false ?
               (<div className="p-2 text-xl" onClick={() => setshowPassword(!showPassword)}><i class="fa-regular fa-eye"></i></div>)
               :
               (<div className="p-2 text-xl" onClick={() => setshowPassword(!showPassword)}><i class="fa-regular fa-eye-slash"></i></div>)
           }
         </div>
-        {error.password == true && (<div className='text-red-500 text-[10px] px-4 py-1 mx-4 my-1 '>*password is Empty</div>)}
+        {error.password === true && (<div className='text-red-500 text-[10px] px-4 py-1 mx-4 my-1 '>*password is Empty</div>)}
         {strength && (<div className='text-red-500 text-[10px] px-4 py-1 mx-4 my-1 '>*password should be more than 6 letters </div>)}
 
 
@@ -66,7 +66,7 @@ const AdminLogin = () => {
         </div>
       </div>
       <div className='text-center mt-3 text-[10px]' >
-        Not an Admin?<span className='text-blue-700' onClick={() => nevigate("/auth/login")}> User Login</span>
+        Not an Admin?<span className='text-blue-700 cursor-pointer' onClick={() => nevigate("/auth/login")}> User Login</span>
       </div>
 
     </div>
